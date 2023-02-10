@@ -178,7 +178,194 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
 
 - 이 화면에서는 Opsmanager가 관리하는 인증서가 표시됩니다.
 
-- 
+<캡쳐>
+
+- **인증서** 페이지 의 상단 섹션 에는 Ops Manager API가 교체하려고 시도하는 인증서가 포함되어 있습니다. 이 섹션에는 Ops Manager API가 교체할 수 있는 인증서와 수동으로 교체해야 하는 인증서가 모두 포함되어 있습니다.
+
+
+
+- 이러한 인증서를 교체하는 방법에 대한 자세한 내용은 [인증서 교체 개요를](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/2.10/vmware-tanzu-ops-manager/security-pcf-infrastructure-api-cert-rotation.html) 참조하십시오.
+
+- **다음은 인증서** 페이지 에 나열된 정보에 대한 설명입니다 .
+  
+  - **Certificate name:** **인증서** 의 이름입니다.
+  
+  - **Product GUID:** 고유 식별자가 있는 Tile의 이름입니다.
+  
+  - **Location:** CredHub 또는 Ops Manager가 인증서를 저장하고 관리하는지 여부입니다.
+  
+  - **Type:** 인증 기관(CA) 또는 Leaf 인증서인지 여부입니다.
+  
+  - **Configurable:**  인증서를 구성할 수 있는지 여부입니다. 인증서를 구성할 수 있는 경우 고유한 인증서를 생성하여 Ops Manager 구성 창에 붙여넣을 수 있습니다.
+  
+  - **Valid until:** 인증서가 만료되는 날짜입니다.
+
+
+
+<캡쳐>
+
+- 다음 이미지는 **인증서** 페이지 의 **제외된 인증서** 섹션을 보여줍니다.
+  
+  - **제외된 인증서** 섹션 에는 CredHub Maestro CLI를 사용하여 교체해야 하거나 Ops Manager API가 교체를 시도하지 않는 인증서가 포함되어 있습니다.
+  
+  - 서비스 TLS CA 및 해당 Leaf 인증서는 CredHub Maestro CLI를 사용하여 순환해야 합니다. 서비스 TLS CA 인증서 및 해당 Leaf 인증서를 순환하려면 *CredHub Maestro를 사용한 고급 인증서 순환* 에서 [서비스 TLS CA 및 해당 리프](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/2.10/vmware-tanzu-ops-manager/security-pcf-infrastructure-advanced-certificate-rotation.html#services-rotation) 인증서 순환을 참조하십시오 .
+  
+  - **제외된 인증서** 에 나열된 다른 모든 인증서 의 경우 회전 불가 인증서와 연결된 제품 타일에 대한 설명서를 참조하거나 Support 에 문의 하십시오.
+
+
+
+##### Settings Page
+
+화면 오른쪽 상단에 있는 사용자 이름을 클릭 하고 설정 을 선택하여 **Settings** 페이지로 이동 **합니다** . 
+
+※ Note *:  Settings에서 설정하는 정보를 적용하기 위해 Apply Chnages 버튼을 클릭할 필요가 없습니다. 이러한 설정은 Opsmanager VM에 적용됩니다. Bosh Director가 이러한 설정을 배포에 적용하지 않습니다.*
+
+
+
+- **Change Decryption Passprase**
+  
+          <캡쳐>
+  
+  - 복호화 암호를 재설정하려면 다음과 같이 세부 정보를 입력하고 **Change Decryption Passphrase** 를 클릭하십시오 .
+  
+  - Current Decryption Passphrase :  현재 암호 해독 암호
+  
+  - New Decryption Passphrase : 새 암호 해독 암호
+  
+  - Confirm New Decryption Passphrase : 새 암호 해독 암호            
+
+
+
+- **Internal Authentication Settings**
+  
+  **내부 인증 설정** 창을 사용 하여 내부 인증 방법에 대한 설정을 보고 업데이트할 수 있습니다. 
+  
+  이 창에는 다음 필드가 포함됩니다.
+  
+  - Current Decryption Passphrase : 내부 인증 방법에 대한 암호 해독 암호를 업데이트합니다.
+  
+  - Admin Username : 관리 사용자의 사용자 이름을 업데이트합니다.
+  
+  - Admin Password : admin 사용자의 비밀번호를 업데이트합니다.
+
+
+
+- **SAML Settings**
+  
+  ID 공급자(IdP)를 SAML로 변경하려면 다음 필드를 구성하십시오.
+  
+  - Current Decryption Passphrase : **현재 암호 해독 암호** 를 입력합니다.
+  
+  - SAML IDP Metadata : 전체 URL 또는 XML SAML IdP 메타데이터를 입력합니다.
+  
+  - BOSH IDP Metadata : (선택 사항) 전체 URL 또는 XML BOSH IdP 메타데이터를 입력합니다. 비워 두면 기본값은 위의 필드와 동일한 메타데이터입니다.
+  
+  - SAML Admin Group :  모든 Ops Manager 관리자를 포함하는 SAML 그룹의 이름을 입력합니다. 이 필드는 대소문자를 구분합니다.
+  
+  - Groups Attribute :  SAML 서버를 구성한 그룹 속성 태그 이름을 입력합니다. 이 필드는 대소문자를 구분합니다.
+  
+  - Provision an admin client in the Bosh UAA : BOSH UAA에서 관리 클라이언트를 프로비저닝하려면 활성화하십시오. 자세한 내용 *은 BOSH Director용 UAA 클라이언트 생성 의* [Admin 클라이언트 프로비저닝](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/2.10/vmware-tanzu-ops-manager/install-opsmanager-create-bosh-client.html#saml) 을 참조하십시오 .
+
+
+
+- **LDAP Settings**
+
+        이 창을 사용하여 IdP를 LDAP로 변경합니다.
+
+        IdP를 SAML 또는 LDAP로 변경하는 방법에 대한 자세한 내용은 IaaS 구성에 대한 다음 지침을 참조하십시오. [Configuring BOSH Director on vSphere](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/2.10/vmware-tanzu-ops-manager/vsphere-config.html)
+
+
+
+- **SSL Certificate**
+  
+  [캡쳐]
+
+        **SSL 인증서** 창을 사용하여 UI 및 API를 통한 모든 Ops Manager 트래픽에 사용자 지정 SSL 인증서를 사용하도록 Ops Manager를 구성 할 수 있습니다 .
+
+        이 창에는 다음 필드가 포함됩니다.
+
+         **Certificate** : 사용자 지정 인증서를 입력합니다.
+
+        **Private Key :** 인증서의 개인 키를 입력합니다.
+
+        필드를 비워 두면 Ops Manager는 자체 사용자 지정 인증서 및 개인 키가 아닌 자동 생성된 자체 서명 인증서를 사용합니다. 사용자 지정 인증서를 자체 서명된 인증서로 바꾸려면 자체 서명된 인증서로 **Revert to self-signed certificate**를 선택 합니다.        
+
+   
+
+- **VMware Tanzu Network Settings**
+
+        [VMware Tanzu 네트워크 API](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/2.10/vmware-tanzu-ops-manager/install-add-delete.html#pivnet-api) 토큰을 입력 하고 토큰 **추가** 를 클릭 하여 **설치 대시보드** 를 VMware Tanzu 네트워크 에 연결하십시오 .
+
+
+
+- **Proxy Settings**
+  
+  프록시를 사용하여 Ops Manager에 연결 하는 경우 **HTTP 프록시** , **HTTPS 프록시** 또는 **프록시 없음** 을 제공 하여 **프록시 설정** 을 업데이트하십시오 .
+
+
+
+- **Custom Banner**
+
+        운영자에게 중요한 메시지를 전달하는 사용자 지정 텍스트 배너를 만듭니다. **UI 배너** 에 대해 Ops Manager UI의 각 페이지에 표시할 텍스트를 입력합니다 . **SSH 배너** 의 경우 운영자가 Operations Manager VM에 접속할 때 표시되는 텍스트를 입력합니다.
+
+
+
+- **Export Installation Settings**
+
+        모든 정보와 함께 현재 설치를 내보냅니다. 설치를 내보낼 때 내보낸 파일에는 기본 VM 이미지, 필수 패키지 및 구성 설정에 대한 참조가 포함됩니다.
+
+
+
+- **Syslog**
+
+        관리자만 볼 수 있습니다. Ops Manager용 사용자 지정 Syslog 서버를 구성합니다. **예** 를 선택 하고 다음 필드를 채우면 Ops Manager는 Ops Manager VM의 모든 syslog 항목을 생성하여 구성된 syslog 엔드포인트로 보냅니다. Ops Manager는 또한 BOSH Director 액세스 이벤트를 syslog 엔드포인트로 보냅니다.
+
+※ Note *:   Ops Manager syslog 항목은 RFC 3164 형식으로 전송됩니다.*
+
+    Ops Manager 로그에 대한 사용자 지정 syslog 엔드포인트를 구성하려면:                   
+
+1. **Syslog** 를 선택 합니다.
+
+2. (선택 사항) **예** 를 선택하여 Ops Manager 시스템 로그를 원격 서버로 보냅니다.
+
+3. **주소에 원격 서버의 IP 주소** 또는 DNS 이름을 입력합니다 .
+
+4. 포트에 원격 서버가 청취하는 포트 번호를 입력 **하십시오** .
+
+5. **전송 프로토콜** 드롭다운 에서 **TCP** 또는 **UDP** 를 선택 합니다. 이 선택은 원격 서버에 로그를 보내는 데 사용되는 전송 프로토콜을 결정합니다.
+
+6. (선택 사항) TLS를 사용 하여 원격 서버에 암호화된 로그를 보내려면 **TLS 활성화 확인란을 선택합니다.** 확인란을 선택한 후:
+   
+   1. **Permitted Peer** 에 원격 피어의 이름 또는 SHA1 지문을 입력합니다 .
+   2. SSL 인증서 에 원격 서버의 SSL 인증서를 입력 **합니다** .
+
+7. (선택 사항) Queue Size 에 정수를 입력합니다 . 이 값은 버퍼에 보관된 로그 메시지 수를 지정합니다. 기본값은 100,000입니다.
+
+8. (선택 사항) **디버그 로그** 를 외부 소스로 전달 확인란을 선택합니다. 이 옵션은 기본적으로 선택 취소되어 있습니다. 선택하면 대량의 로그 데이터가 생성될 수 있습니다.
+
+9. **(선택 사항) Custom rsyslog 구성** 필드 에 rsyslog에 대한 구성 세부 정보를 입력합니다 . 이 필드에는 rainerscript 구문이 필요합니다.
+
+10. **SAVE** 를 클릭 합니다.
+
+
+
+- **Advanced Options**
+  
+  - **활동 데이터** 다운로드: 설치를 위한 구성 파일, 배포 기록 및 버전 정보가 포함된 디렉터리를 다운로드합니다.
+  
+  -  **루트 CA 인증서 다운로드:** Ops Manager API를 컬링하는 대신 배포의 루트 CA 인증서를 다운로드하는 데 사용합니다.
+  
+  - **이 설치** 삭제: Ops Manager 설치를 영구적으로 삭제합니다.
+  
+  - **진단 보고서 보기:** 배포 구성에 대한 다양한 유형의 정보를 표시합니다.
+
+
+
+
+
+
+
+
 
 ---
 
@@ -202,3 +389,5 @@ https://docs.pivotal.io/ops-manager/3-0/opsguide/config-rbac.html
 ---
 
 ### 모니터링 및 로깅
+
+
