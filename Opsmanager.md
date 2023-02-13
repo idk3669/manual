@@ -65,7 +65,7 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
 
 - [Using the Ops Manager Interface](#Opsmanager-인트페이스-사용법)
 - [Reviewing Pending Product Changes](#Preview-Pending-Changes-사용법)
-- [Adding and Deleting Products](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/install-add-delete.html)
+- [Adding and Deleting Products](#Products-추가-및-삭제)
 - [Importing and Managing Stemcells](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/opsguide-managing-stemcells.html)
 - [Managing Errands in Ops Manager](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/install-managing_errands.html)
 
@@ -341,59 +341,105 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
 
 <캡쳐>
 
-- Review Pending Changes Page
+###### Review Pending Changes Page
+
+- **A**—**Select All Products:** 활성화되면 확인란이 사용 가능한 모든 Tile을 선택합니다. 체크박스를 선택 해제하면 사용 가능한 모든 Tile이 선택 해제됩니다.
+
+- **B**—**Select Product:** 각 제품 목록 옆에 있는 확인란을 사용하여 배포하려는 Tile을 선택할 수 있습니다. BOSH Director는 항상 선택됩니다.
+
+- **C**—**Product Listing:**  각 Tile 목록에는 배포를 위해 준비된 Tile 버전이 표시됩니다. 각 목록의 상단에는 다음 세 가지 색상 중 하나가 표시됩니다. 
   
-  - **A**—**Select All Products:** 활성화되면 확인란이 사용 가능한 모든 Tile을 선택합니다. 체크박스를 선택 해제하면 사용 가능한 모든 Tile이 선택 해제됩니다.
+  - 초록색 : Tile이 구성되었으며 배포할 준비가 되었습니다.
   
-  - **B**—**Select Product:** 각 제품 목록 옆에 있는 확인란을 사용하여 배포하려는 Tile을 선택할 수 있습니다. BOSH Director는 항상 선택됩니다.
+  - 주황색 : Tile이 완전히 구성되지 않았으며 아직 배포할 수 없습니다.
   
-  - **C**—**Product Listing:**  각 Tile 목록에는 배포를 위해 준비된 Tile 버전이 표시됩니다. 각 목록의 상단에는 다음 세 가지 색상 중 하나가 표시됩니다. 
-    
-    - 초록색 : Tile이 구성되었으며 배포할 준비가 되었습니다.
-    
-    - 주황색 : Tile이 완전히 구성되지 않았으며 아직 배포할 수 없습니다.
-    
-    - 빨강색 : Tile이 삭제 대기 중입니다.
+  - 빨강색 : Tile이 삭제 대기 중입니다.
+
+- **D**—**Depends on:** 이 섹션에는 Tile 종속성 및 버전이 나열됩니다. 종속성이 있는 Tile을 배포하도록 선택한 경우 해당 Tile의 모든 종속성도 동일한 배포에 배포해야 합니다. 종속성은 다음 색상으로 표시됩니다.
   
-  - **D**—**Depends on:** 이 섹션에는 Tile 종속성 및 버전이 나열됩니다. 종속성이 있는 Tile을 배포하도록 선택한 경우 해당 Tile의 모든 종속성도 동일한 배포에 배포해야 합니다. 종속성은 다음 색상으로 표시됩니다.
-    
-    - 초록색 : 올바른 버전의 종속성이 설치 되었습니다.
-    
-    - 빨간색 : 종속성의 호환되지 않는 버전이 설치 되어있습니다. 빨간색 텍스트에(optional)이 선택되어 있다면 변경 사항을 계속 적용할 수 있습니다.
-    
-    - 회색 : 종속성이 설치되지 않았지만 선택 사항입니다.
+  - 초록색 : 올바른 버전의 종속성이 설치 되었습니다.
   
-  - **E**—**Warnings:** 주황색 Tile 목록의 빨간색 텍스트는 Tile을 배포하기 전에 변경해야 함을 나타냅니다. 다음 경고 중 일부가 표시될 수 있습니다.
-    
-    - **Missing stemcell(s)** : Stemcell Library에서 하나 이상의 stemcell을 선택해야합니다. 
-    
-    - **Stemcell(s) out of date**: Stemcell Library에서 Tile에 대해 하나 이상의 stemcell 을 업데이트 해야합니다. 자세한 내용은 [Importing and Managing Stemcells](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/opsguide-managing-stemcells.html)를 참고하세요.
-    
-    - **Configuration is incomplete** : Tile 구성을 완료해야 합니다.
-    
-    - **Configuration is invalid** : Tile의 잘못된 구성을 해결해야 합니다.
+  - 빨간색 : 종속성의 호환되지 않는 버전이 설치 되어있습니다. 빨간색 텍스트에(optional)이 선택되어 있다면 변경 사항을 계속 적용할 수 있습니다.
   
-  - **F**—**Changes:**  이 섹션에는 Ops Manager가 아직 배포를 시도하지 않은 Tile에 대한 상위 수준의 보류 중인 변경 사항이 나열됩니다. Ops Manager가 Tile 배포를 시도하지만 배포에 실패하면 이 목록이 지워지고 다음 배포를 위해 보류 중인 변경 사항이 유지됩니다. Tile이 성공적으로 배포되었는지 확인하려면 [변경 로그 페이지를](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/pcf-interface.html#changelog) 참조하십시오. 나열된 변경사항은 아래와 같습니다.
-    
-    - Tile 삭제가 준비되었습니다.
-    
-    - Tile 버전이 업데이트 되었습니다.
-    
-    - Stemcell이 추가되었습니다.
-    
-    - Stemcell이 업데이트 되었습니다.
+  - 회색 : 종속성이 설치되지 않았지만 선택 사항입니다.
+
+- **E**—**Warnings:** 주황색 Tile 목록의 빨간색 텍스트는 Tile을 배포하기 전에 변경해야 함을 나타냅니다. 다음 경고 중 일부가 표시될 수 있습니다.
   
-  - **G**—**Errands:** 
+  - **Missing stemcell(s)** : Stemcell Library에서 하나 이상의 stemcell을 선택해야합니다. 
   
-  - **H**—**Staged:**
+  - **Stemcell(s) out of date**: Stemcell Library에서 Tile에 대해 하나 이상의 stemcell 을 업데이트 해야합니다. 자세한 내용은 [Importing and Managing Stemcells](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/opsguide-managing-stemcells.html)를 참고하세요.
   
-  - **I**—**See Changes:**
+  - **Configuration is incomplete** : Tile 구성을 완료해야 합니다.
   
-  - **J**—**Apply Changes:**
+  - **Configuration is invalid** : Tile의 잘못된 구성을 해결해야 합니다.
+
+- **F**—**Changes:**  이 섹션에는 Ops Manager가 아직 배포를 시도하지 않은 Tile에 대한 상위 수준의 보류 중인 변경 사항이 나열됩니다. Ops Manager가 Tile 배포를 시도하지만 배포에 실패하면 이 목록이 지워지고 다음 배포를 위해 보류 중인 변경 사항이 유지됩니다. Tile이 성공적으로 배포되었는지 확인하려면 [변경 로그 페이지를](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/pcf-interface.html#changelog) 참조하십시오. 나열된 변경사항은 아래와 같습니다.
+  
+  - Tile 삭제가 준비되었습니다.
+  
+  - Tile 버전이 업데이트 되었습니다.
+  
+  - Stemcell이 추가되었습니다.
+  
+  - Stemcell이 업데이트 되었습니다.
+
+- **G**—**Errands:** 이 섹션을 확장하면 해당 Tile이 배치될 때 트리거되는 Errand를 활성화하거나 비활성화할 수 있습니다. 예를 들어 Errand를 활성화하여 속성을 기록할 수 있습니다. 자세한 내용은 [Ops Manager에서 Errand 관리를](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/install-managing_errands.html) 참조하십시오.
+
+- **H**—**Staged:** 이 섹션은 Tile 상태를 나타냅니다.
+
+- **I**—**See Changes:** 이 버튼을 클릭하면 해당 Tile에 대한 보류 중인 변경사항을 볼 수 있습니다.
+
+- **J**—**Apply Changes:** 이 버튼을 클릭하면 활성화된 모든 Tile이 배포됩니다.
 
 
 
+###### About Pending Changes for a Specific Tile
 
+배포에서 Tile의 구성을 변경한 경우 **Pending Changes** 페이지를 사용하여 기존 매니페스트 또는 구성에 대한 변경 사항을 한 줄씩 검토합니다.
+
+이 페이지에는 기존 Tile 구성에 대한 단계적 변경 사항이 요약되어 있습니다. 이 페이지에 표시된 변경 사항은 아직 Tile 배포에 적용되지 않았습니다.
+
+이 페이지에서 운영자는 Tile 배포에 변경 사항을 적용하기 전에 단계적 변경 사항을 승인할 수 있도록 매니페스트 및 구성에 대한 변경 사항을 확인할 수 있습니다.
+
+
+
+###### Use the Pending Changes Page
+
+변경 요약 필드에는 Ops Manager UI 또는 API를 사용하여 활성화 또는 비활성화된 기능이 표시됩니다. 이러한 변경 사항은 단계적이지만 아직 구현되지 않았습니다. **이러한 변경 사항을 적용** 하려면 변경 사항 적용을 클릭해야 합니다 .
+
+특정 Tile에 대한 변경 사항을 보려면:
+
+1. 보류 중인 변경 사항 검토 페이지에서 검토하려는 타일의 **See Changes**를 클릭합니다. 새 탭이 열립니다.
+
+2. 표시된 변경 사항을 검토합니다. 비활성화 된 설정은 빼기 기호(-)와 함께 빨간색으로 표시됩니다. 활성화 된 설정은 더하기 기호(+)와 함께 녹색으로 표시됩니다.
+
+3. 탭을 닫고 보류 중인 변경 사항 검토 페이지로 돌아가 변경 사항을 적용하거나 다른 Tile을 검토합니다.
+
+
+
+<캡쳐>
+
+위는 BOSH Director 의 매니페스트에 대한 변경 사항을 보여줍니다.
+
+타일을 변경하면 다음 Tile 영역에 대한 변경 요약이 표시됩니다.
+
+- Manifest
+
+- Runtime configs
+
+- CPI configs
+
+- Cloud configs
+
+
+
+만약 Tile 변경 사항이 없으면 `No changes`라고 보여집니다.
+
+※ Note *:   Errand 변경 사항은 페이지 UI에 표시되지 않습니다.*
+
+
+
+##### Products 추가 및 삭제
 
 
 
