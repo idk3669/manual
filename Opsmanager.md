@@ -1,7 +1,5 @@
 # Opsmanager
 
-
-
 ### 개념
 
 ---
@@ -18,8 +16,6 @@ Opsmanager에 두가지 유형으로 된 tile을 설치할 수 있습니다.
 
 * Service Tiles : 런타임 환경 뿐만아니라 다양한 서비스를 설치할 수 있습니다. Opsmanager를 통해 관리되는 서비스는 Gemfire, RabbitMQ, SCS, SCG가 있습니다.
   설치할 수 있는 타일에 대한 자세한 내용은 VMware Tanzu Network를 참조할 수 있습니다. https://network.pivotal.io/
-
-
 
 Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 및 서비스 타일의 설치 및 유지 관리를 담당합니다.
 
@@ -43,19 +39,13 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
   
   - Opsmanager 사용자 및 클라이언트 계정 생성 및 관리
 
-
-
 다음은 변경 사항, 기능 추가/삭제, 버그 개선 등 변경 되는 업데이트(Releae note) 사항 링크입니다. (https://docs.pivotal.io/ops-manager/3-0/release-notes.html)
-
-
 
 ---
 
 ### 설치 방법
 
--  캡쳐 + 작성 예정
-  
-  
+- 캡쳐 + 작성 예정
 
 ---
 
@@ -63,9 +53,7 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
 
 ### 업그레이드 방법
 
-- 
-
-ㄹ
+- ㄹ
 
 ---
 
@@ -73,21 +61,31 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
 
 이 단계에서는 OpsManager 인터페이스의 주요 기능에 대해 설명합니다.
 
-##### 메인페이지
+ 
+
+- [Using the Ops Manager Interface](#Opsmanager-인터페이스-사용법)
+- [Reviewing Pending Product Changes]
+- [Adding and Deleting Products](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/install-add-delete.html)
+- [Importing and Managing Stemcells](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/opsguide-managing-stemcells.html)
+- [Managing Errands in Ops Manager](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/install-managing_errands.html)
+
+
+
+##### # Opsmanager 인터페이스 사용법
+
+###### 메인페이지
 
 * 대시보드는 런타임 tile과 서비스 tile을 관리하기 위한 OpsManager 인터페이스입니다.
-  
-  
-  
-  
+
   a. **IMPORT A PRODUCT** : OpsManager에 새 제품을 추가하려면 이 버튼을 클릭합니다. VMware Tanzu Network에서 OpsManager 호환 제품 파일을 가져올 수 있습니다.
-  1. Tanzu Network에서 설치하고자 하는 제품을 다운로드 하십시오.
-  2. OpsManager 대시보드로 이동하여 로그인합니다.
-  3. Import a Product를 클릭합니다. 
-  4. .pivotal 파일을 클릭합니다.
-  5. 제품 목록의 + 아이콘을 클릭하여 OpsManager 대시보드에 제품 타일을 추가합니다.
-  6. OpsManager 대시보드에 제품 타일이 나타납니다. 제품에 구성이 필요한 경우 타일 하단의 막대가 주황색으로 나타납니다.
-  7. 제품 구성이 끝나게 되면 타일 하단의 막대가 초록색으로 나타나게 됩니다.
+
+1. Tanzu Network에서 설치하고자 하는 제품을 다운로드 하십시오.
+2. OpsManager 대시보드로 이동하여 로그인합니다.
+3. Import a Product를 클릭합니다. 
+4. .pivotal 파일을 클릭합니다.
+5. 제품 목록의 + 아이콘을 클릭하여 OpsManager 대시보드에 제품 타일을 추가합니다.
+6. OpsManager 대시보드에 제품 타일이 나타납니다. 제품에 구성이 필요한 경우 타일 하단의 막대가 주황색으로 나타납니다.
+7. 제품 구성이 끝나게 되면 타일 하단의 막대가 초록색으로 나타나게 됩니다.
 
         
 
@@ -100,8 +98,6 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
         
 
         c. **Delete All Unused Products** : 설치 가능한 tile 리스트에서 모든 제품을 삭제할 수 있습니다.
-
-
 
         d. **Installation Dashboard** : 다른 페이지에서 OpsManager 메인 화면으로 가려면 클릭합니다.
 
@@ -122,29 +118,17 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
 
         h. **User Account Menu**: 
 
-
-
         I. **Revert** :
-
-
 
         J. **Review Pending Changes** :
 
-
-
         K.  **Orange Bar** :
-
-
 
         L.  **Missing Stemcell Link** : 
 
-
-
         M. **API Docs** : 
 
-
-
-##### Change Log 페이지
+###### Change Log 페이지
 
 - 메인 대시보드 상단 헤더에서 CHANGELOG를 클릭합니다. 이 페이지에는 Ops Manager에서 수행하는 모든 변경 사항 적용 작업 내용이 기록 됩니다.
 
@@ -170,9 +154,7 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
 
 * 개별 작업 행 아래의 총계 행에는 **STARTED**, **FINISHED**, 및 **DURATION** 필드에 대한 모든 Tile 총계가 나열됩니다.
 
-
-
-##### CERTIFICATES
+###### CERTIFICATES
 
 - 메인 대시보드 상단 헤더에서 CERTIFICATES를 클릭합니다.
 
@@ -181,8 +163,6 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
 <캡쳐>
 
 - **인증서** 페이지 의 상단 섹션 에는 Ops Manager API가 교체하려고 시도하는 인증서가 포함되어 있습니다. 이 섹션에는 Ops Manager API가 교체할 수 있는 인증서와 수동으로 교체해야 하는 인증서가 모두 포함되어 있습니다.
-
-
 
 - 이러한 인증서를 교체하는 방법에 대한 자세한 내용은 [인증서 교체 개요를](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/2.10/vmware-tanzu-ops-manager/security-pcf-infrastructure-api-cert-rotation.html) 참조하십시오.
 
@@ -200,8 +180,6 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
   
   - **Valid until:** 인증서가 만료되는 날짜입니다.
 
-
-
 <캡쳐>
 
 - 다음 이미지는 **인증서** 페이지 의 **제외된 인증서** 섹션을 보여줍니다.
@@ -212,15 +190,11 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
   
   - **제외된 인증서** 에 나열된 다른 모든 인증서 의 경우 회전 불가 인증서와 연결된 제품 타일에 대한 설명서를 참조하거나 Support 에 문의 하십시오.
 
-
-
-##### Settings Page
+###### Settings Page
 
 화면 오른쪽 상단에 있는 사용자 이름을 클릭 하고 설정 을 선택하여 **Settings** 페이지로 이동 **합니다** . 
 
 ※ Note *:  Settings에서 설정하는 정보를 적용하기 위해 Apply Chnages 버튼을 클릭할 필요가 없습니다. 이러한 설정은 Opsmanager VM에 적용됩니다. Bosh Director가 이러한 설정을 배포에 적용하지 않습니다.*
-
-
 
 - **Change Decryption Passprase**
   
@@ -234,8 +208,6 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
   
   - Confirm New Decryption Passphrase : 새 암호 해독 암호            
 
-
-
 - **Internal Authentication Settings**
   
   **내부 인증 설정** 창을 사용 하여 내부 인증 방법에 대한 설정을 보고 업데이트할 수 있습니다. 
@@ -247,8 +219,6 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
   - Admin Username : 관리 사용자의 사용자 이름을 업데이트합니다.
   
   - Admin Password : admin 사용자의 비밀번호를 업데이트합니다.
-
-
 
 - **SAML Settings**
   
@@ -266,15 +236,11 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
   
   - Provision an admin client in the Bosh UAA : BOSH UAA에서 관리 클라이언트를 프로비저닝하려면 활성화하십시오. 자세한 내용 *은 BOSH Director용 UAA 클라이언트 생성 의* [Admin 클라이언트 프로비저닝](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/2.10/vmware-tanzu-ops-manager/install-opsmanager-create-bosh-client.html#saml) 을 참조하십시오 .
 
-
-
 - **LDAP Settings**
 
         이 창을 사용하여 IdP를 LDAP로 변경합니다.
 
         IdP를 SAML 또는 LDAP로 변경하는 방법에 대한 자세한 내용은 IaaS 구성에 대한 다음 지침을 참조하십시오. [Configuring BOSH Director on vSphere](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/2.10/vmware-tanzu-ops-manager/vsphere-config.html)
-
-
 
 - **SSL Certificate**
   
@@ -296,25 +262,17 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
 
         [VMware Tanzu 네트워크 API](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/2.10/vmware-tanzu-ops-manager/install-add-delete.html#pivnet-api) 토큰을 입력 하고 토큰 **추가** 를 클릭 하여 **설치 대시보드** 를 VMware Tanzu 네트워크 에 연결하십시오 .
 
-
-
 - **Proxy Settings**
   
   프록시를 사용하여 Ops Manager에 연결 하는 경우 **HTTP 프록시** , **HTTPS 프록시** 또는 **프록시 없음** 을 제공 하여 **프록시 설정** 을 업데이트하십시오 .
-
-
 
 - **Custom Banner**
 
         운영자에게 중요한 메시지를 전달하는 사용자 지정 텍스트 배너를 만듭니다. **UI 배너** 에 대해 Ops Manager UI의 각 페이지에 표시할 텍스트를 입력합니다 . **SSH 배너** 의 경우 운영자가 Operations Manager VM에 접속할 때 표시되는 텍스트를 입력합니다.
 
-
-
 - **Export Installation Settings**
 
         모든 정보와 함께 현재 설치를 내보냅니다. 설치를 내보낼 때 내보낸 파일에는 기본 VM 이미지, 필수 패키지 및 구성 설정에 대한 참조가 포함됩니다.
-
-
 
 - **Syslog**
 
@@ -346,9 +304,6 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
 9. **(선택 사항) Custom rsyslog 구성** 필드 에 rsyslog에 대한 구성 세부 정보를 입력합니다 . 이 필드에는 rainerscript 구문이 필요합니다.
 
 10. **SAVE** 를 클릭 합니다.
-
-
-
 - **Advanced Options**
   
   - **활동 데이터** 다운로드: 설치를 위한 구성 파일, 배포 기록 및 버전 정보가 포함된 디렉터리를 다운로드합니다.
@@ -361,7 +316,22 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
 
 
 
+###### My Account Page
 
+<캡쳐>
+
+이메일과 암호를 변경하려면 화면 오른쪽 상단 모서리에 있는 사용자 이름을 클릭하고 **My Account**를 클릭하고 내 계정 페이지로 이동합니다. 
+
+- **Profile**: 현재 이메일 주소와 가려진 비밀번호가 표시됩니다.
+- **Third Party Access**: 사용이 승인된 모든 제3자 애플리케이션이 여기에 나열됩니다.
+- **Change Email**
+- **Change Password**
+
+
+
+##### REVIEW PENDING CHANGES Page
+
+이 항목에서는 ****Review Pending Changes**** 페이지와 VMware Tanzu Operations Manager(Ops Manager)에서 개별 Tile 또는 여러 Tile을 선택적으로 배포하는 방법에 대해 설명합니다. Tile을 선택적으로 배포하면 배포 시간을 크게 줄일 수 있습니다.
 
 
 
@@ -374,12 +344,6 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
 OpsManager를 사용할 때 운영자별로 제한된 액세스 책임을 두어 관리할 수 있습니다.
 https://docs.pivotal.io/ops-manager/3-0/opsguide/config-rbac.html
 
-
-
-
-
-
-
 ---
 
 ### 백업 및 트러블슈팅
@@ -389,5 +353,3 @@ https://docs.pivotal.io/ops-manager/3-0/opsguide/config-rbac.html
 ---
 
 ### 모니터링 및 로깅
-
-
