@@ -64,7 +64,7 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
  
 
 - [Using the Ops Manager Interface](#Opsmanager-인트페이스-사용법)
-- [Reviewing Pending Product Changes]
+- [Reviewing Pending Product Changes](#Preview-Pending-Changes-사용법)
 - [Adding and Deleting Products](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/install-add-delete.html)
 - [Importing and Managing Stemcells](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/opsguide-managing-stemcells.html)
 - [Managing Errands in Ops Manager](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/install-managing_errands.html)
@@ -77,15 +77,21 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
 
 * 대시보드는 런타임 tile과 서비스 tile을 관리하기 위한 OpsManager 인터페이스입니다.
 
-  a. **IMPORT A PRODUCT** : OpsManager에 새 제품을 추가하려면 이 버튼을 클릭합니다. VMware Tanzu Network에서 OpsManager 호환 제품 파일을 가져올 수 있습니다.
+      a. **IMPORT A PRODUCT** : OpsManager에 새 제품을 추가하려면 이 버튼을 클릭합니다. VMware Tanzu Network에서 OpsManager 호환 제품 파일을 가져올 수 있습니다.
 
-1. Tanzu Network에서 설치하고자 하는 제품을 다운로드 하십시오.
-2. OpsManager 대시보드로 이동하여 로그인합니다.
-3. Import a Product를 클릭합니다. 
-4. .pivotal 파일을 클릭합니다.
-5. 제품 목록의 + 아이콘을 클릭하여 OpsManager 대시보드에 제품 타일을 추가합니다.
-6. OpsManager 대시보드에 제품 타일이 나타납니다. 제품에 구성이 필요한 경우 타일 하단의 막대가 주황색으로 나타납니다.
-7. 제품 구성이 끝나게 되면 타일 하단의 막대가 초록색으로 나타나게 됩니다.
+        1. Tanzu Network에서 설치하고자 하는 제품을 다운로드 하십시오.
+
+        2. OpsManager 대시보드로 이동하여 로그인합니다.
+
+        3. Import a Product를 클릭합니다. 
+
+        4. .pivotal 파일을 클릭합니다.
+
+        5. 제품 목록의 + 아이콘을 클릭하여 OpsManager 대시보드에 제품 타일을 추가합니다.
+
+        6. OpsManager 대시보드에 제품 타일이 나타납니다. 제품에 구성이 필요한 경우 타일 하단의 막대가 주황색으로 나타납니다.
+
+        7. 제품 구성이 끝나게 되면 타일 하단의 막대가 초록색으로 나타나게 됩니다.
 
         
 
@@ -329,9 +335,63 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
 
 
 
-##### REVIEW PENDING CHANGES Page
+##### Preview Pending Changes 사용법
 
 이 항목에서는 ****Review Pending Changes**** 페이지와 VMware Tanzu Operations Manager(Ops Manager)에서 개별 Tile 또는 여러 Tile을 선택적으로 배포하는 방법에 대해 설명합니다. Tile을 선택적으로 배포하면 배포 시간을 크게 줄일 수 있습니다.
+
+<캡쳐>
+
+- Review Pending Changes Page
+  
+  - **A**—**Select All Products:** 활성화되면 확인란이 사용 가능한 모든 Tile을 선택합니다. 체크박스를 선택 해제하면 사용 가능한 모든 Tile이 선택 해제됩니다.
+  
+  - **B**—**Select Product:** 각 제품 목록 옆에 있는 확인란을 사용하여 배포하려는 Tile을 선택할 수 있습니다. BOSH Director는 항상 선택됩니다.
+  
+  - **C**—**Product Listing:**  각 Tile 목록에는 배포를 위해 준비된 Tile 버전이 표시됩니다. 각 목록의 상단에는 다음 세 가지 색상 중 하나가 표시됩니다. 
+    
+    - 초록색 : Tile이 구성되었으며 배포할 준비가 되었습니다.
+    
+    - 주황색 : Tile이 완전히 구성되지 않았으며 아직 배포할 수 없습니다.
+    
+    - 빨강색 : Tile이 삭제 대기 중입니다.
+  
+  - **D**—**Depends on:** 이 섹션에는 Tile 종속성 및 버전이 나열됩니다. 종속성이 있는 Tile을 배포하도록 선택한 경우 해당 Tile의 모든 종속성도 동일한 배포에 배포해야 합니다. 종속성은 다음 색상으로 표시됩니다.
+    
+    - 초록색 : 올바른 버전의 종속성이 설치 되었습니다.
+    
+    - 빨간색 : 종속성의 호환되지 않는 버전이 설치 되어있습니다. 빨간색 텍스트에(optional)이 선택되어 있다면 변경 사항을 계속 적용할 수 있습니다.
+    
+    - 회색 : 종속성이 설치되지 않았지만 선택 사항입니다.
+  
+  - **E**—**Warnings:** 주황색 Tile 목록의 빨간색 텍스트는 Tile을 배포하기 전에 변경해야 함을 나타냅니다. 다음 경고 중 일부가 표시될 수 있습니다.
+    
+    - **Missing stemcell(s)** : Stemcell Library에서 하나 이상의 stemcell을 선택해야합니다. 
+    
+    - **Stemcell(s) out of date**: Stemcell Library에서 Tile에 대해 하나 이상의 stemcell 을 업데이트 해야합니다. 자세한 내용은 [Importing and Managing Stemcells](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/opsguide-managing-stemcells.html)를 참고하세요.
+    
+    - **Configuration is incomplete** : Tile 구성을 완료해야 합니다.
+    
+    - **Configuration is invalid** : Tile의 잘못된 구성을 해결해야 합니다.
+  
+  - **F**—**Changes:**  이 섹션에는 Ops Manager가 아직 배포를 시도하지 않은 Tile에 대한 상위 수준의 보류 중인 변경 사항이 나열됩니다. Ops Manager가 Tile 배포를 시도하지만 배포에 실패하면 이 목록이 지워지고 다음 배포를 위해 보류 중인 변경 사항이 유지됩니다. Tile이 성공적으로 배포되었는지 확인하려면 [변경 로그 페이지를](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/pcf-interface.html#changelog) 참조하십시오. 나열된 변경사항은 아래와 같습니다.
+    
+    - Tile 삭제가 준비되었습니다.
+    
+    - Tile 버전이 업데이트 되었습니다.
+    
+    - Stemcell이 추가되었습니다.
+    
+    - Stemcell이 업데이트 되었습니다.
+  
+  - **G**—**Errands:** 
+  
+  - **H**—**Staged:**
+  
+  - **I**—**See Changes:**
+  
+  - **J**—**Apply Changes:**
+
+
 
 
 
