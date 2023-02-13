@@ -441,6 +441,32 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
 
 ##### Products 추가 및 삭제
 
+Opsmanager에 Products를 추가하고 삭제하는 방법에 대해 설명합니다.
+
+※ Note *:   Opsmanager에서는, 모든 product tile은  기본적으로 floating stemcells을 사용합니다. 이렇게 하면 Tile이 최신 패치 버전의 stemcell을 자동으로 사용하도록 하여 배포 보안이 강화되지만 Tile 업그레이드에 필요한 시간이 크게 늘어날 수 있습니다. 자세한 내용은 [Floating Stemcells](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/install-understanding-stemcells.html)를 참고하세요.*
+
+
+
+###### Add and Import Products
+
+Ops Manager 설치에 Tile을 추가하거나 가져오려면:
+
+1. [VMware Tanzu 네트워크](https://network.pivotal.io/) 에서 제품을 다운로드하십시오.
+
+2. Ops Manager 설치 대시보드로 이동하여 로그인합니다.
+
+3. **Import a Product** 클릭합니다 .
+
+4. `.pivotal`VMware Tanzu Network에서 다운로드했거나 소프트웨어 배포자로부터 받은 파일을 선택 하고 **열기를** 클릭합니다 . 제품이 성공적으로 추가되면 **제품 가져오기** 버튼 아래 제품 목록에 나타납니다. 선택한 제품이 최신 버전이 아닌 경우 제품 목록에 최신 버전이 나타납니다.
+
+5. 제품 목록의 오른쪽 하단에 있는 녹색 **+ 아이콘을 클릭하여 Ops Manager 설치 대시보드에 제품 타일을 추가합니다.**
+
+6. Ops Manager 설치 대시보드에 제품 타일이 나타납니다. 제품에 구성이 필요한 경우 타일 하단의 막대가 주황색으로 나타납니다. 필요한 경우 제품을 구성합니다.
+
+
+
+
+
 
 
 ---
