@@ -63,7 +63,7 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
 
  
 
-- [Using the Ops Manager Interface](#Opsmanager-인터페이스-사용법)
+- [Using the Ops Manager Interface](#Opsmanager-인트페이스-사용법)
 - [Reviewing Pending Product Changes]
 - [Adding and Deleting Products](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/install-add-delete.html)
 - [Importing and Managing Stemcells](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/opsguide-managing-stemcells.html)
@@ -71,7 +71,7 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
 
 
 
-##### # Opsmanager 인터페이스 사용법
+##### Opsmanager 인트페이스 사용법
 
 ###### 메인페이지
 
