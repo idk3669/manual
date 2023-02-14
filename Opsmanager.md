@@ -661,7 +661,15 @@ Opsmanager API에 액세스하려면 Opsmanager 사용자 계정 및 인증(UAA)
 
 - UAAC 설치
 
-    아직 UAAC를 설치 하지 않은 경우 아래 단게를 진행합니다.
+    아직 UAAC를 설치 하지 않은 경우 아래 단계를 진행합니다.
+
+    `gem install cf-uaac`
+
+
+
+- 인증 토큰 검색 
+
+    [Using the Ops Manager API](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/install-ops-man-api.html)
 
 
 
