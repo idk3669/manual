@@ -556,7 +556,7 @@ VMware Tanzu Application Service for VMs(TAS for VMs)는 스모크 테스트, �
 
 ###### Errand Run Rules
 
-운영자는 Errand를 위해 **ON, OFF**2가지로 설정 가능합니다. 이러한 규칙은 Opsmanager가 Errand를 실행하는 시기를 제어합니다.
+운영자는 Errand를 위해 **ON, OFF** 2가지로 설정 가능합니다. 이러한 규칙은 Opsmanager가 Errand를 실행하는 시기를 제어합니다.
 
 
 
@@ -564,14 +564,108 @@ Errand가 ON으로 구성되면 제품 manifest에 변경 사항이 없어도 �
 
 
 
+###### Opsmanager 기본 설정과 Tile 기본 설정
+
+기본적으로 Opsmanager는 모든 errand에 ON 규칙을 적용합니다.
+
+
+
+###### Configure Run Rules in Ops Manager
+
+
+
+###### Errand Pane:Persistent Rules
+
+<캡쳐>
+
+
+
+###### Pending Changes: One-Time Rules
+
+
+
+
+
+
+
+###### 
+
 
 
 ---
 
-### 사용 방법 API or CLI
+### API or CLI 사용방법
 
 OpsManager를 사용할 때 운영자별로 제한된 액세스 책임을 두어 관리할 수 있습니다.
 https://docs.pivotal.io/ops-manager/3-0/opsguide/config-rbac.html
+
+
+
+- [Using Ops Manager Programmatically and from the Command Line](#CLI를-사용하여-Opsmanager-사용)
+- [Using the Ops Manager API](# Opsmanager-API-사용)
+- [Using the Ops Manager CLI](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/install-cli.html)
+
+
+
+##### CLI를 사용하여 Opsmanager 사용
+
+이 항목에서는 Opsmanager UI가 아닌 CLI에서 프로그래밍 방식으로 VMware Tanzu Operations Manager(Opsmanager) 작업을 실행하기 위한 세 가지 도구인 Ops Manager API, 명령줄 인터페이스(CLI) 및 플랫폼 자동화 작업을 소개합니다.
+
+
+
+###### Overview
+
+- Opsmanager API. 자세한 내용은 [Ops Manager API](https://docs.pivotal.io/platform/opsman-api) 문서를 참조하세요.
+
+- 명령어  `om` CLI 에 대한 자세한 내용은  [`om` repository](https://github.com/pivotal-cf/om) 를참조하십시오 .
+
+- 플랫폼 자동화 작업. 자세한 내용은 [플랫폼 자동화](http://docs.pivotal.io/platform-automation) 설명서를 참조하십시오.
+
+이 세 가지 도구는 서로 다른 추상화 수준에서 Ops Manager VM을 제어합니다. 플랫폼 운영자는 아래와 같이 사용합니다.
+
+###### Opsmanager API
+
+
+
+###### Opsmanager CLI(om)
+
+
+
+###### Platform Automation
+
+
+
+###### Examples of Equivalent Operations
+
+
+
+##### Opsmanager API 사용
+
+Opsmanager API는 Opsmanager UI를 우회하여 Opsmanager VM을 직접 제어합니다.
+
+
+
+플랫폼 운영자는 Ops Manager API를 사용하여 배포를 자동화하고, 자격 증명을 검색 및 관리하고, Opsmanager와 함께 작업합니다.  Ops Manager API에 대한 자세한 내용은 [Ops Manager API](https://docs.pivotal.io/ops-manager/3-0/api) 설명서를 참조하십시오. 
+
+
+
+###### Related Tools
+
+명령줄 또는 쉘 스크립트내에서 Opsmanager 를 작업하는 경우 일반적으로 Opsmanager CLI인 om을 사용합니다. 이는 Opsmanager API를 사용하는 것 보다 더 편리합니다.
+
+
+
+###### Opsmanager API에 액세스
+
+Opsmanager API에 액세스하려면 Opsmanager 사용자 계정 및 인증(UAA) 서버에 인증하고 아래 단계에 따라 로그인해야합니다.
+
+- UAAC 설치
+
+    아직 UAAC를 설치 하지 않은 경우 아래 단게를 진행합니다.
+
+
+
+
 
 ---
 
