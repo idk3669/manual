@@ -65,7 +65,7 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
 - [Reviewing Pending Product Changes](#Preview-Pending-Changes-사용법)
 - [Adding and Deleting Products](#Products-추가-및-삭제)
 - [Importing and Managing Stemcells](#Stemcells-가져오기-및-관리)
-- [Managing Errands in Ops Manager](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/install-managing_errands.html)
+- [Managing Errands in Ops Manager](#Opsmanager에서-Errand-관리)
 
 ##### Opsmanager 인트페이스 사용법
 
@@ -487,6 +487,80 @@ Opsmanager 설치에서 제품을 삭제하려면:
 
 
 ##### Stemcells 가져오기 및 관리
+
+이 항목에서는 VMware Tanzu Operations Manager(Opsmanager)에서 Stemcell Library를 사용하여 Stemcell를 제품으로 가져오고 스테이징하는 방법에 대해 설명합니다.
+
+###### Overview
+
+Stemcell Library는 Stemcell를 제품으로 가져오기 위해 준비합니다.
+
+For more conceptual information about floating stemcells and stemcell upgrades, see [Floating Stemcells](https://docs.pivotal.io/platform/customizing/understanding-stemcells.html). 
+
+※ Note *:  일부 제품 릴리즈에는 Opsmanager에서 Xenial Stemcell를 사용하는  Tile에 나열된 대로 Xenial Stemcell이 필요합니다. Xenial Stemcell를 처음 가져왓 사용하는 경우 [Xenial Stemcell지원 업데이트를](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/breaking-changes.html#xenial) 참조하십시오 .*
+
+
+
+###### Import and Stage a Stemcell
+
+Stemcell을 가져오고 준비하려면 다음을 수행해야합니다.
+
+1. VMware Tanzu Network에서 .tgz 확장자를 가진 Stemcell 파일을 다운로드합니다.
+
+2. Stemcell import를 클릭하여 Stemcell를 Opsmanager로 가져옵니다. IMPORT STEMCELL 대화 상자가 나타납니다.
+
+3. 스테이징할 제품을 선택합니다.
+
+<캡쳐>
+
+4. **APPLY STEMCELL TO PRODUCTS**를 클릭하거나 **Dismiss**를 클릭하여 대화 상자를 닫습니다.
+
+
+
+###### Choose a Stemcell Version
+
+만약 여러 버전의 stemcell을 업로드하였다면, **Staged** 열의 드롭다운 메뉴를 사용하여 사용할 버전을 선택할 수 있습니다.
+
+
+
+배포하기 전까지 다른 버전을 선택할 수 있습니다. 배포 후에는 이전 stemcell 버전을 더 이상 사용할 수 없습니다. 업그레이드 전에 업로드한 stemcell을 사용하려면 Opsmanager를 업그레이드 한 후 다시 업로드 해야합니다.
+
+<캡쳐>
+
+Stemcell이 녹색 체크 표시와 스테이징 됨 과 함께 **Latest stemcell** 이라는 단어가 보이게 되면, stemcell이 호스트에서 사용 가능한 최신 버전입니다. 오래된 Stemcell은 **Stemcell-out-of-date** 라고 표시됩니다.
+
+<캡쳐>
+
+
+
+##### Opsmanager에서 Errand 관리
+
+###### Overview
+
+Opsmanager에서 제품 errands를 어떻게 사용하는지와 그것을 어떻게 구성해야 하는지에 대해 설명합니다.
+
+Errand는 설치된 제품이 사용 가능 시간 시작될 때와 끝날 때 실행할 수 있는 스크립트입니다. Opsmanager를 사용하여 이러한 Errand 실행 여부와 시기를 조정할 수 있습니다.
+
+제품 타일에는 두 가지 유형의 Errand가 포함됩니다.
+
+- **Post-deploy errands** : 제품이 설치 된 후 Opsmanager가 제품을 사용할 수 있게 만들기 전에 실행 됩니다. Errand 기능 중 하나의 예로 마켓플레이스에 새로 설치 된 서비스를 게시합니다.
+
+- **Pre-delete errands** : 운영자가 제품 삭제를 선택한 후 Opsmanager가 실제로 제품을 삭제하기 전에 실행됩니다. 한 예로 Errand에 사용된 모든 데이터 개체를 제거하는 정리 작업을 수행합니다.
+
+**Review Pending Changes**를 클릭 후 Opsmanager에서 변경 사항을 적용하기 위해 **Apply Changes**를 클릭하면 BOSH는 실행되는 각 Errand에 대한 VM을 생성하거나 기존 VM에서 Errand를 배치합니다. Tile에는 BOSH가 제품의 Errand를 배치하는 위치를 결정되어 있습니다.
+
+
+
+VMware Tanzu Application Service for VMs(TAS for VMs)는 스모크 테스트, 앱 관리자, 알림, Opsmanager 계정 및 자동 확장 Errand를 포함하여 여러 가지 배포 후 Errand를 제공합니다. VM용 TAS Errand에 대한 자세한 내용은 [VM용 TAS 구성을](https://docs.pivotal.io/application-service/operating/configure-pas.html) 참조하십시오 .
+
+
+
+###### Errand Run Rules
+
+운영자는 Errand를 위해 **ON, OFF**2가지로 설정 가능합니다. 이러한 규칙은 Opsmanager가 Errand를 실행하는 시기를 제어합니다.
+
+
+
+Errand가 ON으로 구성되면 제품 manifest에 변경 사항이 없어도 항상 실행됩니다. Errand가 OFF로 구성된 경우 실행되지 않습니다.
 
 
 
