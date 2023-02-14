@@ -61,15 +61,11 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
 
 이 단계에서는 OpsManager 인터페이스의 주요 기능에 대해 설명합니다.
 
- 
-
 - [Using the Ops Manager Interface](#Opsmanager-인트페이스-사용법)
 - [Reviewing Pending Product Changes](#Preview-Pending-Changes-사용법)
 - [Adding and Deleting Products](#Products-추가-및-삭제)
-- [Importing and Managing Stemcells](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/opsguide-managing-stemcells.html)
+- [Importing and Managing Stemcells](#Stemcells-가져오기-및-관리)
 - [Managing Errands in Ops Manager](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/install-managing_errands.html)
-
-
 
 ##### Opsmanager 인트페이스 사용법
 
@@ -83,7 +79,7 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
 
         2. OpsManager 대시보드로 이동하여 로그인합니다.
 
-        3. Import a Product를 클릭합니다. 
+        3. Import a Product를 클릭합니다.
 
         4. .pivotal 파일을 클릭합니다.
 
@@ -95,10 +91,10 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
 
         
 
-        b. **tile 삭제** 
+        b. **tile 삭제**
             1. 대시보드에서 제품 타일에서 휴지통 아이콘을 클릭하여 해당 제품을 제거합니다.(BOSH Director tile은 삭제할 수 없습니다.)
             2. Review Pending Changes를 클릭합니다. 그리고 삭제하고자 하는 tile을 선택 후 Apply Chanage를 클릭합니다.
-            3. tile을 삭제하면 tile이 대시보드 메인 화면에서 제거됩니다. 
+            3. tile을 삭제하면 tile이 대시보드 메인 화면에서 제거됩니다.
             4. 하지만 Available Products에 목록으로 존재하게 됩니다.
 
         
@@ -122,7 +118,7 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
 
         
 
-        h. **User Account Menu**: 
+        h. **User Account Menu**:
 
         I. **Revert** :
 
@@ -130,9 +126,9 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
 
         K.  **Orange Bar** :
 
-        L.  **Missing Stemcell Link** : 
+        L.  **Missing Stemcell Link** :
 
-        M. **API Docs** : 
+        M. **API Docs** :
 
 ###### Change Log 페이지
 
@@ -216,7 +212,7 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
 
 - **Internal Authentication Settings**
   
-  **내부 인증 설정** 창을 사용 하여 내부 인증 방법에 대한 설정을 보고 업데이트할 수 있습니다. 
+  **내부 인증 설정** 창을 사용 하여 내부 인증 방법에 대한 설정을 보고 업데이트할 수 있습니다.
   
   이 창에는 다음 필드가 포함됩니다.
   
@@ -320,20 +316,16 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
   
   - **진단 보고서 보기:** 배포 구성에 대한 다양한 유형의 정보를 표시합니다.
 
-
-
 ###### My Account Page
 
 <캡쳐>
 
-이메일과 암호를 변경하려면 화면 오른쪽 상단 모서리에 있는 사용자 이름을 클릭하고 **My Account**를 클릭하고 내 계정 페이지로 이동합니다. 
+이메일과 암호를 변경하려면 화면 오른쪽 상단 모서리에 있는 사용자 이름을 클릭하고 **My Account**를 클릭하고 내 계정 페이지로 이동합니다.
 
 - **Profile**: 현재 이메일 주소와 가려진 비밀번호가 표시됩니다.
 - **Third Party Access**: 사용이 승인된 모든 제3자 애플리케이션이 여기에 나열됩니다.
 - **Change Email**
 - **Change Password**
-
-
 
 ##### Preview Pending Changes 사용법
 
@@ -347,7 +339,7 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
 
 - **B**—**Select Product:** 각 제품 목록 옆에 있는 확인란을 사용하여 배포하려는 Tile을 선택할 수 있습니다. BOSH Director는 항상 선택됩니다.
 
-- **C**—**Product Listing:**  각 Tile 목록에는 배포를 위해 준비된 Tile 버전이 표시됩니다. 각 목록의 상단에는 다음 세 가지 색상 중 하나가 표시됩니다. 
+- **C**—**Product Listing:**  각 Tile 목록에는 배포를 위해 준비된 Tile 버전이 표시됩니다. 각 목록의 상단에는 다음 세 가지 색상 중 하나가 표시됩니다.
   
   - 초록색 : Tile이 구성되었으며 배포할 준비가 되었습니다.
   
@@ -365,7 +357,7 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
 
 - **E**—**Warnings:** 주황색 Tile 목록의 빨간색 텍스트는 Tile을 배포하기 전에 변경해야 함을 나타냅니다. 다음 경고 중 일부가 표시될 수 있습니다.
   
-  - **Missing stemcell(s)** : Stemcell Library에서 하나 이상의 stemcell을 선택해야합니다. 
+  - **Missing stemcell(s)** : Stemcell Library에서 하나 이상의 stemcell을 선택해야합니다.
   
   - **Stemcell(s) out of date**: Stemcell Library에서 Tile에 대해 하나 이상의 stemcell 을 업데이트 해야합니다. 자세한 내용은 [Importing and Managing Stemcells](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/opsguide-managing-stemcells.html)를 참고하세요.
   
@@ -391,8 +383,6 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
 
 - **J**—**Apply Changes:** 이 버튼을 클릭하면 활성화된 모든 Tile이 배포됩니다.
 
-
-
 ###### About Pending Changes for a Specific Tile
 
 배포에서 Tile의 구성을 변경한 경우 **Pending Changes** 페이지를 사용하여 기존 매니페스트 또는 구성에 대한 변경 사항을 한 줄씩 검토합니다.
@@ -400,8 +390,6 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
 이 페이지에는 기존 Tile 구성에 대한 단계적 변경 사항이 요약되어 있습니다. 이 페이지에 표시된 변경 사항은 아직 Tile 배포에 적용되지 않았습니다.
 
 이 페이지에서 운영자는 Tile 배포에 변경 사항을 적용하기 전에 단계적 변경 사항을 승인할 수 있도록 매니페스트 및 구성에 대한 변경 사항을 확인할 수 있습니다.
-
-
 
 ###### Use the Pending Changes Page
 
@@ -414,8 +402,6 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
 2. 표시된 변경 사항을 검토합니다. 비활성화 된 설정은 빼기 기호(-)와 함께 빨간색으로 표시됩니다. 활성화 된 설정은 더하기 기호(+)와 함께 녹색으로 표시됩니다.
 
 3. 탭을 닫고 보류 중인 변경 사항 검토 페이지로 돌아가 변경 사항을 적용하거나 다른 Tile을 검토합니다.
-
-
 
 <캡쳐>
 
@@ -431,21 +417,15 @@ Opsmanager는 운영자가 관리하는 영역입니다. 운영자는 런타임 
 
 - Cloud configs
 
-
-
 만약 Tile 변경 사항이 없으면 `No changes`라고 보여집니다.
 
 ※ Note *:   Errand 변경 사항은 페이지 UI에 표시되지 않습니다.*
-
-
 
 ##### Products 추가 및 삭제
 
 Opsmanager에 Products를 추가하고 삭제하는 방법에 대해 설명합니다.
 
 ※ Note *:   Opsmanager에서는, 모든 product tile은  기본적으로 floating stemcells을 사용합니다. 이렇게 하면 Tile이 최신 패치 버전의 stemcell을 자동으로 사용하도록 하여 배포 보안이 강화되지만 Tile 업그레이드에 필요한 시간이 크게 늘어날 수 있습니다. 자세한 내용은 [Floating Stemcells](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/install-understanding-stemcells.html)를 참고하세요.*
-
-
 
 ###### Add and Import Products
 
@@ -463,7 +443,50 @@ Ops Manager 설치에 Tile을 추가하거나 가져오려면:
 
 6. Ops Manager 설치 대시보드에 제품 타일이 나타납니다. 제품에 구성이 필요한 경우 타일 하단의 막대가 주황색으로 나타납니다. 필요한 경우 제품을 구성합니다.
 
+7. (선택 사항) 제품 구성 설정에서 **Errands** 창을 선택하여 설치 후 Errand를 구성하거나 기본 설정을 검토합니다. 설치 후 Errand는 제품 설치 후 Ops Manager가 제품을 사용할 수 있게 만들기 전에 자동으로 실행되는 스크립트입니다. 설치 후 Errand에 대한 자세한 내용은 Ops Manager Tile 개발자 가이드의 [Errands](http://docs.pivotal.io/tiledev/tile-errands.html)를 참조하세요.
 
+<캡쳐>
+
+     위 캡쳐는 Broker Registar 체크 박스 예시 입니다. 이 errand registers 서비스 브로커 확인란을 활성화하면 이 errand는 클라우드 컨트롤러에 서비스 브로커를 등록하고 이전 등록 이후 변경된 모든 브로커 URL 및 자격 증명 값을 업데이트합니다.
+
+
+
+    8. **Review Pending Changes**를 클릭합니다.
+
+    9. **Apply Changes**클릭하여 설치를 시작하고 제품에 대한 설치 후 lifecycle errands를 실행하십시오.
+
+
+
+###### Using the VMware Tanzu Network API to Upgrade Products (제외 -> 인터넷 불가)
+
+Opsmanager 설치에서 각각의 새 버전의 제품을 수동으로 다운로드하는 대신 API 토큰을 사용하여 Opsmanager 설치 대시보드를 VMware Tanzu 네트워크와 연결하여 제품을 업그레이드할 수 있습니다. 제품을 업로드하면 이후의 모든 제품 업그레이드가 Opsmanager 설치 대시보드에 자동으로 나타납니다.
+
+
+
+###### BOSH Director에 변경 사항 적용
+
+새 Opsmanager 설치에서 또는 업그레이드의 일부로 여러 제품을 스테이징할 때 Opsmanager 설치 대시보드의 보류 중인 변경 사항 **Review Pending Changes** 화면에서 변경 사항을 BOSH Director에만 적용할 수 있습니다.
+
+
+
+###### Delete Products
+
+Opsmanager 설치에서 제품을 삭제하려면:
+
+설치 대시보드에서:
+
+1. 해당 제품을 제거하려면 제품 Tile에서 휴지통 아이콘을 클릭하십시오.
+2. 표시되는 **Delete Product** 대화 상자에서 **Confirm**을 클릭합니다.
+
+※ Note *:  BOSH Director 제품은 삭제할 수 없습니다.*
+
+3. **Review Pending Changes**를 클릭하고 **Apply Changes**를 클릭합니다.
+
+제품을 삭제하면 제품 타일이 설치 및 설치 대시보드에서 제거됩니다. 그러나 해당 제품은 Available Products view에 나타납니다.
+
+
+
+##### Stemcells 가져오기 및 관리
 
 
 
