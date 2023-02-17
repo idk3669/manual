@@ -18,7 +18,7 @@
 
 * **vSphere에 Ops Manager.ova 파일을 설치합니다.**
 
-![](002.png)
+<img title="" src="002.png" alt="" width="341" data-align="center">
 
 * **Ops Manager 설치를 위해 설정을 진행합니다.**
 
