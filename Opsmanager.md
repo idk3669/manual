@@ -449,25 +449,17 @@ Ops Manager 설치에 Tile을 추가하거나 가져오려면:
 
      위 캡쳐는 Broker Registar 체크 박스 예시 입니다. 이 errand registers 서비스 브로커 확인란을 활성화하면 이 errand는 클라우드 컨트롤러에 서비스 브로커를 등록하고 이전 등록 이후 변경된 모든 브로커 URL 및 자격 증명 값을 업데이트합니다.
 
-
-
     8. **Review Pending Changes**를 클릭합니다.
 
     9. **Apply Changes**클릭하여 설치를 시작하고 제품에 대한 설치 후 lifecycle errands를 실행하십시오.
-
-
 
 ###### Using the VMware Tanzu Network API to Upgrade Products (제외 -> 인터넷 불가)
 
 Opsmanager 설치에서 각각의 새 버전의 제품을 수동으로 다운로드하는 대신 API 토큰을 사용하여 Opsmanager 설치 대시보드를 VMware Tanzu 네트워크와 연결하여 제품을 업그레이드할 수 있습니다. 제품을 업로드하면 이후의 모든 제품 업그레이드가 Opsmanager 설치 대시보드에 자동으로 나타납니다.
 
-
-
 ###### BOSH Director에 변경 사항 적용
 
 새 Opsmanager 설치에서 또는 업그레이드의 일부로 여러 제품을 스테이징할 때 Opsmanager 설치 대시보드의 보류 중인 변경 사항 **Review Pending Changes** 화면에서 변경 사항을 BOSH Director에만 적용할 수 있습니다.
-
-
 
 ###### Delete Products
 
@@ -484,8 +476,6 @@ Opsmanager 설치에서 제품을 삭제하려면:
 
 제품을 삭제하면 제품 타일이 설치 및 설치 대시보드에서 제거됩니다. 그러나 해당 제품은 Available Products view에 나타납니다.
 
-
-
 ##### Stemcells 가져오기 및 관리
 
 이 항목에서는 VMware Tanzu Operations Manager(Opsmanager)에서 Stemcell Library를 사용하여 Stemcell를 제품으로 가져오고 스테이징하는 방법에 대해 설명합니다.
@@ -497,8 +487,6 @@ Stemcell Library는 Stemcell를 제품으로 가져오기 위해 준비합니다
 For more conceptual information about floating stemcells and stemcell upgrades, see [Floating Stemcells](https://docs.pivotal.io/platform/customizing/understanding-stemcells.html). 
 
 ※ Note *:  일부 제품 릴리즈에는 Opsmanager에서 Xenial Stemcell를 사용하는  Tile에 나열된 대로 Xenial Stemcell이 필요합니다. Xenial Stemcell를 처음 가져왓 사용하는 경우 [Xenial Stemcell지원 업데이트를](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/breaking-changes.html#xenial) 참조하십시오 .*
-
-
 
 ###### Import and Stage a Stemcell
 
@@ -514,13 +502,9 @@ Stemcell을 가져오고 준비하려면 다음을 수행해야합니다.
 
 4. **APPLY STEMCELL TO PRODUCTS**를 클릭하거나 **Dismiss**를 클릭하여 대화 상자를 닫습니다.
 
-
-
 ###### Choose a Stemcell Version
 
 만약 여러 버전의 stemcell을 업로드하였다면, **Staged** 열의 드롭다운 메뉴를 사용하여 사용할 버전을 선택할 수 있습니다.
-
-
 
 배포하기 전까지 다른 버전을 선택할 수 있습니다. 배포 후에는 이전 stemcell 버전을 더 이상 사용할 수 없습니다. 업그레이드 전에 업로드한 stemcell을 사용하려면 Opsmanager를 업그레이드 한 후 다시 업로드 해야합니다.
 
@@ -529,8 +513,6 @@ Stemcell을 가져오고 준비하려면 다음을 수행해야합니다.
 Stemcell이 녹색 체크 표시와 스테이징 됨 과 함께 **Latest stemcell** 이라는 단어가 보이게 되면, stemcell이 호스트에서 사용 가능한 최신 버전입니다. 오래된 Stemcell은 **Stemcell-out-of-date** 라고 표시됩니다.
 
 <캡쳐>
-
-
 
 ##### Opsmanager에서 Errand 관리
 
@@ -548,49 +530,27 @@ Errand는 설치된 제품이 사용 가능 시간 시작될 때와 끝날 때 �
 
 **Review Pending Changes**를 클릭 후 Opsmanager에서 변경 사항을 적용하기 위해 **Apply Changes**를 클릭하면 BOSH는 실행되는 각 Errand에 대한 VM을 생성하거나 기존 VM에서 Errand를 배치합니다. Tile에는 BOSH가 제품의 Errand를 배치하는 위치를 결정되어 있습니다.
 
-
-
 VMware Tanzu Application Service for VMs(TAS for VMs)는 스모크 테스트, 앱 관리자, 알림, Opsmanager 계정 및 자동 확장 Errand를 포함하여 여러 가지 배포 후 Errand를 제공합니다. VM용 TAS Errand에 대한 자세한 내용은 [VM용 TAS 구성을](https://docs.pivotal.io/application-service/operating/configure-pas.html) 참조하십시오 .
-
-
 
 ###### Errand Run Rules
 
 운영자는 Errand를 위해 **ON, OFF** 2가지로 설정 가능합니다. 이러한 규칙은 Opsmanager가 Errand를 실행하는 시기를 제어합니다.
 
-
-
 Errand가 ON으로 구성되면 제품 manifest에 변경 사항이 없어도 항상 실행됩니다. Errand가 OFF로 구성된 경우 실행되지 않습니다.
-
-
 
 ###### Opsmanager 기본 설정과 Tile 기본 설정
 
 기본적으로 Opsmanager는 모든 errand에 ON 규칙을 적용합니다.
 
-
-
 ###### Configure Run Rules in Ops Manager
-
-
 
 ###### Errand Pane:Persistent Rules
 
 <캡쳐>
 
-
-
 ###### Pending Changes: One-Time Rules
 
-
-
-
-
-
-
 ###### 
-
-
 
 ---
 
@@ -599,19 +559,13 @@ Errand가 ON으로 구성되면 제품 manifest에 변경 사항이 없어도 �
 OpsManager를 사용할 때 운영자별로 제한된 액세스 책임을 두어 관리할 수 있습니다.
 https://docs.pivotal.io/ops-manager/3-0/opsguide/config-rbac.html
 
-
-
 - [Using Ops Manager Programmatically and from the Command Line](#CLI를-사용하여-Opsmanager-사용)
 - [Using the Ops Manager API](# Opsmanager-API-사용)
 - [Using the Ops Manager CLI](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/install-cli.html)
 
-
-
 ##### CLI를 사용하여 Opsmanager 사용
 
 이 항목에서는 Opsmanager UI가 아닌 CLI에서 프로그래밍 방식으로 VMware Tanzu Operations Manager(Opsmanager) 작업을 실행하기 위한 세 가지 도구인 Ops Manager API, 명령줄 인터페이스(CLI) 및 플랫폼 자동화 작업을 소개합니다.
-
-
 
 ###### Overview
 
@@ -625,35 +579,21 @@ https://docs.pivotal.io/ops-manager/3-0/opsguide/config-rbac.html
 
 ###### Opsmanager API
 
-
-
 ###### Opsmanager CLI(om)
-
-
 
 ###### Platform Automation
 
-
-
 ###### Examples of Equivalent Operations
-
-
 
 ##### Opsmanager API 사용
 
 Opsmanager API는 Opsmanager UI를 우회하여 Opsmanager VM을 직접 제어합니다.
 
-
-
 플랫폼 운영자는 Ops Manager API를 사용하여 배포를 자동화하고, 자격 증명을 검색 및 관리하고, Opsmanager와 함께 작업합니다.  Ops Manager API에 대한 자세한 내용은 [Ops Manager API](https://docs.pivotal.io/ops-manager/3-0/api) 설명서를 참조하십시오. 
-
-
 
 ###### Related Tools
 
 명령줄 또는 쉘 스크립트내에서 Opsmanager 를 작업하는 경우 일반적으로 Opsmanager CLI인 om을 사용합니다. 이는 Opsmanager API를 사용하는 것 보다 더 편리합니다.
-
-
 
 ###### Opsmanager API에 액세스
 
@@ -665,15 +605,9 @@ Opsmanager API에 액세스하려면 Opsmanager 사용자 계정 및 인증(UAA)
 
     `gem install cf-uaac`
 
-
-
 - 인증 토큰 검색 
 
     [Using the Ops Manager API](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/install-ops-man-api.html)
-
-
-
-
 
 ---
 
