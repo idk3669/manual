@@ -21,5 +21,18 @@ VMware Tanzu Application Service는 온프레미스와 클라우드 전반에서
 ![image](https://user-images.githubusercontent.com/66672864/220232756-a31ee17c-c651-4c9b-a10b-65cb8403e283.png)
 
 
+### Routing
+
 **Router**
+
 사용자 Http 요청 트래픽을 목적지로 라우트하는 역할을 수행합니다. 주 목적지는 Cloud Controller이나 응용애플리케이션을 실행하고 있는 Garden Container 가 됩니다.
+
+**TCP router**
+
+사용자 Tcp요청 트래픽을 목적지로 라우트하는 역할을 수행합니다. 주 목적지는 응용애플리케이션을 실행하고 있는 Garden Container 가 됩니다.
+
+### **Authentication**
+
+**uaa**
+
+OAuth2 서버 및 로그인 서버로 동작하여 사용자 인증 관리를 제공합니다.
