@@ -31,3 +31,11 @@ IMPORT A PRODUCT을 클릭하여 파일을 import 시켜줍니다.
 --- 
 
 ### AZ 및 네트워크 할당
+네트워킹 창 에서 IaaS에 대한 보안 및 라우팅 서비스를 구성합니다.
+<img width="1258" alt="image" src="https://user-images.githubusercontent.com/66672864/226275415-426ad9b1-c86d-4b01-89f6-dadfbaa0a707.png">
+
+Gorouter IPs : gorouter IP 대역을 설정합니다
+SSH Proxy IPs :  대역을 설정합니다
+HAProxy IPs : gorouter IP 대역을 설정합니다
+TCP router IPs : gorouter IP 대역을 설정합니다
+
