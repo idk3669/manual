@@ -42,7 +42,9 @@ HAProxy IPs : gorouter IP 대역을 설정합니다
 
 TCP router IPs : gorouter IP 대역을 설정합니다
 
-Certificates and private keys for the Gorouter and HAProxy
+**Certificates and private keys for the Gorouter and HAProxy**
+
+하나 이상의 인증서와 개인 키 이름 및 인증서 키 쌍을 Gorouter 및 HAProxy에 제공해야 합니다.
 
 <img width="1021" alt="image" src="https://user-images.githubusercontent.com/66672864/227857749-df6b1c5f-96ca-4ca4-8bc9-9f12192205f4.png">
 
