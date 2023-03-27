@@ -44,5 +44,6 @@ TCP router IPs : gorouter IP 대역을 설정합니다
 
 Certificates and private keys for the Gorouter and HAProxy
 
+<img width="1021" alt="image" src="https://user-images.githubusercontent.com/66672864/227857749-df6b1c5f-96ca-4ca4-8bc9-9f12192205f4.png">
 
 
